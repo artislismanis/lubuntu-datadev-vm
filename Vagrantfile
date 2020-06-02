@@ -80,9 +80,15 @@ Vagrant.configure("2") do |config|
 	# config.vm.network "forwarded_port", guest: 80, host: 80
 	# config.vm.network "forwarded_port", guest: 443, host: 443
 	
-	# Provision your VM - 
+	# Provision your VM
+	
 	# Update package list, install any available upgrades
 	config.vm.provision "shell", path: "scripts/upgrade.sh"
+	
+	# Install tools for managing JDKs, SDKs and development tools
+	config.vm.provision "shell", path: "scripts/devenv.sh", privileged: false
 
-
+	# Install Databricks Tooling
+	config.vm.provision "shell", path: "scripts/databricks.sh", privileged: false
+	
 end
