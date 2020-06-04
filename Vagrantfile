@@ -84,11 +84,17 @@ Vagrant.configure("2") do |config|
 	
 	# Update package list, install any available upgrades
 	config.vm.provision "shell", path: "scripts/upgrade.sh"
-	
+
 	# Install tools for managing JDKs, SDKs and development tools
 	config.vm.provision "shell", path: "scripts/devenv.sh", privileged: false
 
+	# Specify Databricks Runtime Environment you are targeting for this VM
+	# Supported values include 6.5
+	DBR_VERSION = "6.5"
+	config.vm.provision "shell", path: "scripts/databricks/databricks-dbr-sysenv.sh", privileged: false, args: [DBR_VERSION]
+
 	# Install Databricks Tooling
-	config.vm.provision "shell", path: "scripts/databricks.sh", privileged: false
-	
+	config.vm.provision "shell", path: "scripts/databricks/databricks-cli.sh", privileged: false
+	config.vm.provision "shell", path: "scripts/databricks/databricks-connect.sh", privileged: false
+	config.vm.provision "shell", path: "scripts/databricks/databricks-simba-jdbc.sh"
 end
