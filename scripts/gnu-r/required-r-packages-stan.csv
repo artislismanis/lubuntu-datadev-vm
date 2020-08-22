@@ -1,0 +1,7 @@
+﻿package,install_mode,config
+brms,cran,
+rstan,cran,
+rstanarm,cran,
+rstantools,cran,
+shinystan,cran,
+StanHeaders,cran,

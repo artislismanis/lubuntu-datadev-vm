@@ -1,13 +1,15 @@
 #!/bin/bash -e
-
+# Read variable passed to script
+JDBC_VERSION=$1
 echo "==> Download Databricks JDBC Driver (2.6.11)..."
-mkdir -p /opt/jdbc/SimbaSparkJDBC
-wget --quiet https://databricks.com/wp-content/uploads/2.6.11.1014/SimbaSparkJDBC-2.6.11.1014.zip
-unzip -o -q SimbaSparkJDBC-2.6.11.1014.zip
-unzip -o -q SimbaSparkJDBC4-2.6.11.1014.zip -d /opt/jdbc/SimbaSparkJDBC/SimbaSparkJDBC4-2.6.11.1014
-unzip -o -q SimbaSparkJDBC41-2.6.11.1014.zip -d /opt/jdbc/SimbaSparkJDBC/SimbaSparkJDBC41-2.6.11.1014
-unzip -o -q SimbaSparkJDBC42-2.6.11.1014.zip -d /opt/jdbc/SimbaSparkJDBC/SimbaSparkJDBC42-2.6.11.1014
-rm -f SimbaSparkJDBC-2.6.11.1014.zip
-rm -f SimbaSparkJDBC4-2.6.11.1014.zip
-rm -f SimbaSparkJDBC41-2.6.11.1014.zip
-rm -f SimbaSparkJDBC42-2.6.11.1014.zip
+rm -rf ~/.local/opt/jdbc/SimbaSparkJDBC/${JDBC_VERSION}
+mkdir -p ~/.local/opt/jdbc/SimbaSparkJDBC/${JDBC_VERSION}
+wget --quiet https://databricks.com/wp-content/uploads/${JDBC_VERSION}/SimbaSparkJDBC-${JDBC_VERSION}.zip
+unzip -o -q SimbaSparkJDBC-${JDBC_VERSION}.zip
+unzip -o -q SimbaSparkJDBC4-${JDBC_VERSION}.zip -d ~/.local/opt/jdbc/SimbaSparkJDBC/${JDBC_VERSION}/
+unzip -o -q SimbaSparkJDBC41-${JDBC_VERSION}.zip -d ~/.local/opt/jdbc/SimbaSparkJDBC/${JDBC_VERSION}/
+unzip -o -q SimbaSparkJDBC42-${JDBC_VERSION}.zip -d ~/.local/opt/jdbc/SimbaSparkJDBC/${JDBC_VERSION}/
+rm -f SimbaSparkJDBC-${JDBC_VERSION}.zip
+rm -f SimbaSparkJDBC4-${JDBC_VERSION}.zip
+rm -f SimbaSparkJDBC41-${JDBC_VERSION}.zip
+rm -f SimbaSparkJDBC42-${JDBC_VERSION}.zip
