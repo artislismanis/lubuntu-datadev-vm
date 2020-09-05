@@ -9,9 +9,6 @@ Vagrant.require_version ">= 2.2.7"
 
 Vagrant.configure("2") do |config|
 
-	# Install vagrant-vbguest plugin to help manage VB Guest Additions 
-	config.vagrant.plugins = "vagrant-vbguest"
-
 	# Set VM name and specify box template to use
 	config.vm.define VM_NAME
 	config.vm.box = "artislismanis/lubuntu-20.04"
