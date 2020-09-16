@@ -84,7 +84,7 @@ Vagrant.configure("2") do |config|
 	config.vm.provision "shell", path: "scripts/common/devenv.sh", privileged: false
 
 	# Specify Databricks Runtime Environment you are targeting for this VM
-	# Supported values include 5.5, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 7.0, 7.1
+	# Supported values include 5.5, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 7.0, 7.1, 7.2, 7.3
 	# See link below for the latest Azure Databricks runtime release status
 	# https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/releases
 	DBR_VERSION = "6.4"
@@ -93,7 +93,8 @@ Vagrant.configure("2") do |config|
 	# Install Databricks Tooling
 	config.vm.provision "shell", path: "scripts/databricks/databricks-cli.sh", privileged: false
 	config.vm.provision "shell", path: "scripts/databricks/databricks-connect.sh", privileged: false, args: [DBR_VERSION]
-	config.vm.provision "shell", path: "scripts/databricks/databricks-simba-jdbc.sh", privileged: false, args: ["2.6.11.1014"]
+	DBR_JDBC = "2.6.11.1014"
+	config.vm.provision "shell", path: "scripts/databricks/databricks-simba-jdbc.sh", privileged: true, args: [DBR_JDBC]
 
 	# Install IDEs
 	config.vm.provision "shell", path: "scripts/common/snap-installer.sh", args: ["DBeaver SQL IDE","dbeaver-ce"]
@@ -109,10 +110,10 @@ Vagrant.configure("2") do |config|
 
 	# Pre-install R packages
 	# Install common libraries required for compiling R packages
-	config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["R Package Dependencies", "libxml2-dev", "libcurl4-openssl-dev", "unixodbc-dev", "libv8-dev", "libmagick++-dev"] 
+	#config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["R Package Dependencies", "libxml2-dev", "libcurl4-openssl-dev", "unixodbc-dev", "libv8-dev", "libmagick++-dev"] 
 	# Install the packages - edit scripts/gnu-r/required-r-packages.csv to match your requirements
 	# As packages get compiled from source you will need to ensure you have all relevant dependencies
-	config.vm.provision "shell", path: "scripts/gnu-r/R-package-builder.sh", privileged: false, args: ["/vagrant/scripts/gnu-r/required-r-packages.csv", "~/gnu-r-package-install-log.csv"]
+	#config.vm.provision "shell", path: "scripts/gnu-r/R-package-builder.sh", privileged: false, args: ["/vagrant/scripts/gnu-r/required-r-packages.csv", "~/gnu-r-package-install-log.csv"]
 	# Install tools for Bayesian analysis
 	#config.vm.provision "shell", path: "scripts/gnu-r/R-package-builder.sh", privileged: false, args: ["/vagrant/scripts/gnu-r/required-r-packages-stan.csv", "~/gnu-r-package-install-log-stan.csv"]
 	#config.vm.provision "shell", path: "scripts/gnu-r/cmdstan.sh", args: ["2.23.0"]
@@ -129,10 +130,14 @@ Vagrant.configure("2") do |config|
 	#config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["Meld Diff Tool", "meld"]
 	#config.vm.provision "shell", path: "scripts/common/snap-installer.sh", args: ["Postman API Client", "postman"]
 	#config.vm.provision "shell", path: "scripts/common/snap-installer.sh", args: ["Productivity Timer", "productivity-timer"]
-	#config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["Various CLI Tools", "jq"]
+	config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["Various CLI Tools", "jq"]
 
 	# Install RDBMS
 	#config.vm.provision "shell", path: "scripts/common/apt-installer.sh", args: ["PostgreSQL DB", "postgresql",  "postgresql-contrib"]
+	#config.vm.provision "shell", inline: <<-EOF
+	#echo "==> Disabling PostgreSQL autostart"
+	#systemctl disable postgresql
+	#EOF
 
 	# Install documentation / static website generators
 	#config.vm.provision "shell", path: "scripts/staticdocs/gitbook.sh", privileged: false
@@ -143,6 +148,8 @@ Vagrant.configure("2") do |config|
 	# User customisations
 	# Review, uncomment and modify the customise.sh script as appropriate.
 	#config.vm.provision "shell", path: "scripts/user/customize.sh", privileged: false
+	#config.vm.provision "shell", path: "scripts/user/postgresql.sh", privileged: false
+	#config.vm.provision "shell", path: "scripts/user/dbeaver-spark.sh", privileged: false, args: [DBR_JDBC]
 
 	# Rebooting system once all provisioning done
 	config.vm.provision "shell", reboot: true, inline: <<-EOF

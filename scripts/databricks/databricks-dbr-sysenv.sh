@@ -24,74 +24,91 @@ DBR_RUBY_VERSION="2.7.0"
 if [[ "$DBR_VERSION" == "5.5" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/5.5#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_252, Scala: 2.11.12, Python: 3.5.2, R: 3.6.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.5.2" 
     DBR_R_VERSION="3.6.0"
 elif [[ "$DBR_VERSION" == "6.0" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.0#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_232, Scala: 2.11.12, Python: 3.7.3, R: 3.6.1, Delta Lake: 0.3.0
+    DBR_JAVA_VERSION="vm-8.0.232-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.1"
 elif [[ "$DBR_VERSION" == "6.1" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.1#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_232, Scala: 2.11.12, Python: 3.7.3, R: 3.6.1, Delta Lake: 0.4.0
+    DBR_JAVA_VERSION="vm-8.0.232-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.1"
 elif [[ "$DBR_VERSION" == "6.2" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.2#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_232, Scala: 2.11.12, Python: 3.7.3, R: 3.6.1, Delta Lake: 0.4.0
+    DBR_JAVA_VERSION="vm-8.0.232-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.1"
 elif [[ "$DBR_VERSION" == "6.3" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.3#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_252, Scala: 2.11.12, Python: 3.7.3, R: 3.6.2, Delta Lake: 0.5.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.2"
 elif [[ "$DBR_VERSION" == "6.4" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.4#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_252, Scala: 2.11.12, Python: 3.7.3, R: 3.6.2, Delta Lake: 0.5.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.2"
 elif [[ "$DBR_VERSION" == "6.5" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.5#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_252, Scala: 2.11.12, Python: 3.7.3, R: 3.6.3, Delta Lake: 0.5.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.3"
 elif [[ "$DBR_VERSION" == "6.6" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/6.6#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 16.04.6 LTS, Java: 1.8.0_252, Scala: 2.11.12, Python: 3.7.3, R: 3.6.3, Delta Lake: 0.6.1
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.3"
 elif [[ "$DBR_VERSION" == "7.0" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/7.0#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 18.04.4 LTS, Java: 1.8.0_252, Scala: 2.12.10, Python: 3.7.5, R: 3.6.3, Delta Lake 0.7.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.5" 
     DBR_R_VERSION="3.6.3"
 elif [[ "$DBR_VERSION" == "7.1" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/7.1#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 18.04.4 LTS, Java: 1.8.0_252, Scala: 2.12.10, Python: 3.7.5, R: 3.6.3, Delta Lake 0.7.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.5" 
     DBR_R_VERSION="3.6.3"
 elif [[ "$DBR_VERSION" == "7.2" ]]
 then
     #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/7.2#system-environment
-    DBR_JAVA_VERSION="8.0.252-open"
+    #OS: Ubuntu 18.04.4 LTS, Java: 1.8.0_252, Scala: 2.12.10, Python: 3.7.5, R: 3.6.3, Delta Lake 0.7.0
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.5" 
     DBR_R_VERSION="3.6.3"
-elif [[ "$DBR_VERSION" == "7.2" ]]
+elif [[ "$DBR_VERSION" == "7.3" ]]
+then
+    #https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/7.3#system-environment
+    #OS: Ubuntu 18.04.5 LTS, Java: Zulu 8.48.0.53-CA-linux64 (build 1.8.0_265-b11), Scala: 2.12.10, Python: 3.7.5, R: 3.6.3, Delta Lake 0.7.0
+    DBR_JAVA_VERSION="vm-zulu8.48.0.53"
+    DBR_PYTHON_VERSION="3.7.5" 
+    DBR_R_VERSION="3.6.3"
 else 
     DBR_LATEST_LTS="6.4"
     echo "The specified DBR version ($DBR_VERSION) is not currently supported by this script..."
-    DBR_JAVA_VERSION="8.0.252-open"
+    DBR_JAVA_VERSION="vm-8.0.252-open"
     DBR_PYTHON_VERSION="3.7.3" 
     DBR_R_VERSION="3.6.2"
     DBR_VERSION=$DBR_LATEST_LTS
@@ -101,10 +118,31 @@ echo "Installing environment for DBR $DBR_VERSION development..."
 echo "https://docs.microsoft.com/en-us/azure/databricks/release-notes/runtime/$DBR_VERSION" > "$HOME/.databricks-environment-details"
 
 echo "==> Installing OpenJDK..."
+
 source "$HOME/.sdkman/bin/sdkman-init.sh"
-if [[ $(sdk list java | grep "| installed  | $DBR_JAVA_VERSION" ) == "" ]]
+if [[ $(sdk list java | grep "| local only | $DBR_JAVA_VERSION" ) == "" ]]
 then
-    sdk install java ${DBR_JAVA_VERSION} > /dev/null 2>&1
+    if [[ "$DBR_JAVA_VERSION" == "vm-8.0.232-open"  ]]
+    then
+        curl -sLO https://github.com/ojdkbuild/contrib_jdk8u-ci/releases/download/jdk8u232-b09/jdk-8u232-ojdkbuild-linux-x64.zip
+        unzip -o -q jdk-8u232-ojdkbuild-linux-x64.zip -d ~/.sdkman/candidates/java/
+        mv ~/.sdkman/candidates/java/jdk-8u232-ojdkbuild-linux-x64  ~/.sdkman/candidates/java/${DBR_JAVA_VERSION}
+        rm -f jdk-8u232-ojdkbuild-linux-x64.zip
+    elif [[ "$DBR_JAVA_VERSION" == "vm-8.0.252-open" ]]
+    then
+        curl -sLO https://github.com/ojdkbuild/contrib_jdk8u-ci/releases/download/jdk8u252-b09/jdk-8u252-ojdkbuild-linux-x64.zip
+        unzip -o -q jdk-8u252-ojdkbuild-linux-x64.zip -d ~/.sdkman/candidates/java/
+        mv ~/.sdkman/candidates/java/jdk-8u252-ojdkbuild-linux-x64  ~/.sdkman/candidates/java/${DBR_JAVA_VERSION}
+        rm -f jdk-8u252-ojdkbuild-linux-x64.zip
+    elif [[ "$DBR_JAVA_VERSION" == "vm-zulu8.48.0.53" ]]
+    then
+        curl -sLO https://cdn.azul.com/zulu/bin/zulu8.48.0.53-ca-jdk8.0.265-linux_x64.tar.gz
+        tar -xzf zulu8.48.0.53-ca-jdk8.0.265-linux_x64.tar.gz -C ~/.sdkman/candidates/java/
+        mv ~/.sdkman/candidates/java/zulu8.48.0.53-ca-jdk8.0.265-linux_x64 ~/.sdkman/candidates/java/${DBR_JAVA_VERSION}
+        rm -f zulu8.48.0.53-ca-jdk8.0.265-linux_x64.tar.gz
+    fi
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk default java ${DBR_JAVA_VERSION} > /dev/null 2>&1
     echo "Java: SDKMan! OpenJDK $DBR_JAVA_VERSION" >> "$HOME/.databricks-environment-details"
 else
     echo "OpenJDK already installed, nothing to do."
